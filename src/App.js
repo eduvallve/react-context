@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Button from './Button';
 import Card from './Card';
+import Form from './Form';
 
 const themes = {
   'dark':{
@@ -16,15 +17,9 @@ const themes = {
 export const ThemeContext = React.createContext();
 
 function App(){
-  const [theme,setTheme] = useState(themes.dark);
   return(
     <div>
-      <ThemeContext.Provider value={ theme }>
-        <Button />
-        <Card />
-        <button onClick={()=>setTheme(themes.light)}>Modo claro</button>
-        <button onClick={()=>setTheme(themes.dark)}>Modo oscuro</button>
-      </ThemeContext.Provider>
+      <Form />
     </div>
   );
 }
